@@ -22,21 +22,20 @@ export class LoginComponent implements OnInit {
     console.log(`user logged in with username :${this.username} and password :${this.password}`);
     sessionStorage.setItem('username',this.username);
     sessionStorage.setItem('password',this.password);
-    if((sessionStorage.getItem('username')==null) || (sessionStorage.getItem('password')==null)){
+    console.log('session data boolean values :'+ (sessionStorage.getItem('username')==null));
+    if(sessionStorage.getItem('username')=='null'){
       this.router.navigate(['/login']); 
     }
     else{
+     console.log("going to welcome component with values "+ sessionStorage.getItem('username'));
       this.router.navigate(['/welcome']); 
     }
    
   }
-  logout(){
-    sessionStorage.removeItem('password');
-  }
   ngOnInit() {
     console.log("login init called");
     console.log("session Item is "+ sessionStorage.getItem('username'));
-    if(sessionStorage.getItem('username')==null|| sessionStorage.getItem('password')==null){
+    if(sessionStorage.getItem('username')=='null'){
       this.router.navigate(['/login']); 
     }
     else{

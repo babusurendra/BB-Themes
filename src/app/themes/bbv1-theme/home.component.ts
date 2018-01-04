@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private router:Router) { }
   logout(){
-     sessionStorage.removeItem('password');
+     sessionStorage.clear();
       this.router.navigate(['/login']);
   }
   ngOnInit() {
